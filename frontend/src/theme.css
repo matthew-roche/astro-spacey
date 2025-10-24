@@ -1,0 +1,47 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+ */
+
+@import "tailwindcss";
+@import 'remixicon/fonts/remixicon.css';
+
+/* 
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Oswald.woff2") format("woff2");
+
+  --color-surface-header: #525252;
+  --color-accent: #C8A24F;
+  --color-accent-hover: #B08E39;
+  --color-award-chip: #F1C376;
+  --color-on-accent: #111827;
+
+} */
+ 
+@theme {
+  --font-fraunces: Fraunces;
+  --font-space-grotesk: Space Grotesk;
+  --font-tasa: TASA Orbite;
+  --font-display: Bricolage Grotesque;
+
+  --color-surface-header: #525252;
+  --color-accent:         #10B981;   /* emerald-500 */
+  --color-accent-hover:   #059669;   /* emerald-600 */
+  --color-chip:     #D1FAE5;   /* emerald-100 wash */
+  --color-chip-ring:      #86EFAC;
+  --color-chip-text:     #065F46;
+  --color-on-accent:      #ffffff;
+
+  --color-band-start:     #ffffff;
+  --color-band-end:        #ECFDF5;
+  --color-band-outline:  #D1FAE5;
+}
+
+/* @layer components {
+  .h1 {@apply font-display font-black tracking-tight leading-none text-4xl md:text-6xl;}
+  .h2 {@apply font-display font-bold tracking-tight text-2xl md:text-3xl;}
+  .eyebrow {@apply text-sm uppercase tracking-wider text-gray-500;}
+} */

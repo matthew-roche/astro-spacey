@@ -1,0 +1,205 @@
+{
+    "Mercury": {
+        "materials": [
+            "Mercury water ice permanent shadow MESSENGER MDIS MLA polar deposits",
+            "Mercury hollows sulfide minerals surface composition",
+            "Mercury surface composition XRS GRNS spectrometer carbonates silicates crust formation"
+        ],
+        "climate": [
+            "Mercury polar cold traps permanently shadowed craters thermal environment",
+            "Mercury surface temperature thermal inertia regolith"
+        ],
+        "radiation": [
+            "Mercury magnetosphere solar wind interaction radiation environment shielding",
+            "Mercury exosphere sodium tail dayside source mechanism"
+        ]
+    },
+    "Venus": {
+        "materials": [
+            "Venus atmosphere phosphine detection reanalysis JCMT ALMA submillimeter 266.94 GHz PH3 PH₃ Greaves cloud layers",
+            "Venus sulfuric acid cloud aerosols H2SO4 cloud droplets cloud deck UV absorber",
+            "Venus basalt volcanic mineralogy Magellan radar emissivity thermal inertia mapping",
+            "Venus surface composition basaltic plains tesserae tessera terrain radar backscatter dielectric constant",
+            "Venus atmosphere trace gases SO2 H2O CO CO2 variability nightside dayside limb",
+            "Phosphine detection JCMT ALMA submillimeter 266.94 GHz PH3 PH₃ Greaves reanalysis clouds",
+            "Venus lightning airglow nightglow oxygen OI 1.27 μm emission",
+            "Venus airglow nightglow subsolar antisolar circulation thermal structure",
+            "Venus phosphine PH3 PH₃ detection JCMT ALMA submillimeter 266.94 GHz Greaves reanalysis cloud layers"
+        ],
+        "climate": [
+            "Venus superrotation atmospheric winds Akatsuki Venera thermal tides Kelvin waves gravity waves",
+            "Venus greenhouse effect surface pressure temperature lapse rate runaway greenhouse",
+            "Venus Hadley circulation cloud deck stability static stability Brunt–Väisälä frequency",
+            "Venus cloud top winds Akatsuki IR2 UVI long-term variability",
+            "Venus thermal structure radiative-convective balance net flux cloud radiative forcing",
+            "Superrotation winds Akatsuki cloud tracking",
+            "Venus atmosphere trace gases SO2 H2O CO CO2 variability nightside dayside limb"
+        ],
+        "radiation": [
+            "Venus ionosphere solar radiation absorption photochemistry EUV Lyman-alpha",
+            "Venus space weather solar wind interaction induced magnetotail bow shock"
+        ]
+    },
+    "Moon": {
+        "materials": [
+            "Moon polar water ice LRO Mini-RF permanently shadowed regions PSRs",
+            "Moon thorium KREEP composition Procellarum",
+            "Moon pyroclastic volcanic glass beads deposits orange soil"
+        ],
+        "climate": [
+            "Moon exosphere argon helium LADEE neutral gas temporal variability"
+        ],
+        "radiation": [
+            "Moon surface radiation environment LRO CRaTER cosmic rays secondary neutrons"
+        ]
+    },
+    "Mars": {
+        "materials": [
+            "Mars organics detection Curiosity SAM GCMS methane spikes chlorobenzene thiophenes",
+            "Mars perchlorate salts Phoenix TEGA calcium perchlorate oxychlorine oxidants",
+            "Mars gypsum vein Endeavour crater Opportunity hydrated sulfates",
+            "Mars hematite spherules blueberries Meridiani Planum",
+            "Mars opaline silica detection Spirit Home Plate hydrothermal",
+            "Mars carbonates clays CRISM MRO phyllosilicates smectites",
+            "Organics detection Curiosity SAM methane spikes"
+        ],
+        "climate": [
+            "Mars methane detection Curiosity TGO seasonal cycles background spikes",
+            "Mars global dust storm climatology MRO MARCI opacity tau",
+            "Mars atmospheric escape MAVEN sputtering photochemical escape",
+            "Mars pressure temperature REMS diurnal and seasonal cycles"
+        ],
+        "radiation": [
+            "Mars surface radiation Curiosity RAD instrument GCR SPE shielding",
+            "Mars galactic cosmic rays radiation dose equivalent"
+        ]
+    },
+    "Jupiter": {
+        "materials": [
+            "Jupiter deep water abundance Juno MWR ammonia distribution deep jets",
+            "Jupiter ammonia weather layer microwave sounding Juno"
+        ],
+        "climate": [
+            "Jupiter Great Red Spot winds storm energy vertical structure",
+            "Jupiter lightning storms detection Juno optical and radio sferics"
+        ],
+        "radiation": [
+            "Jupiter magnetosphere intense radiation belts Juno Jovian electrons"
+        ]
+    },
+    "Saturn": {
+        "materials": [
+            "Saturn ring rain water composition Cassini INMS ionosphere",
+            "Enceladus plume silica salts organics Cassini INMS ocean hydrothermal",
+            "Titan methane ethane hydrocarbon lakes seas composition bathymetry"
+        ],
+        "climate": [
+            "Saturn hexagon north pole atmospheric dynamics wave activity",
+            "Titan methane cycle hydrology seasonal rainfall cloud outbursts"
+        ],
+        "radiation": [
+            "Saturn magnetosphere charged particle radiation Cassini MIMI"
+        ]
+    },
+    "Titan": {
+        "materials": [
+            "Titan atmosphere methane ethane photochemistry haze tholins",
+            "Titan lakes seas Ligeia Mare Kraken Mare composition bathymetry"
+        ],
+        "climate": [
+            "Titan methane cycle precipitation cloud microphysics seasonal circulation"
+        ],
+        "radiation": [
+            "Titan ionosphere photochemistry magnetospheric interaction"
+        ]
+    },
+    "Enceladus": {
+        "materials": [
+            "Enceladus plume ocean salts silica nanoparticles hydrothermal vents"
+        ],
+        "climate": [],
+        "radiation": [
+            "Enceladus plume interaction with Saturn magnetosphere"
+        ]
+    },
+    "Uranus": {
+        "materials": [
+            "Uranus atmosphere methane hydrogen helium composition",
+            "Uranus aerosols haze structure cloud decks"
+        ],
+        "climate": [
+            "Uranus atmospheric storms wind patterns variability Hubble JWST Keck"
+        ],
+        "radiation": [
+            "Uranus magnetosphere tilt complex radiation belts"
+        ]
+    },
+    "Neptune": {
+        "materials": [
+            "Neptune atmospheric haze methane composition photochemistry",
+            "Triton nitrogen ice geysers plumes Voyager cryovolcanism"
+        ],
+        "climate": [
+            "Neptune dark spot storms atmospheric variability Hubble JWST",
+            "Neptune supersonic winds extreme climate vertical shear"
+        ],
+        "radiation": [
+            "Neptune magnetosphere dynamic radiation environment"
+        ]
+    },
+    "Triton": {
+        "materials": [
+            "Triton nitrogen ice geysers plumes seasonal sublimation",
+            "Triton surface composition nitrogen methane carbon monoxide ices"
+        ],
+        "climate": [],
+        "radiation": []
+    },
+    "Pluto": {
+        "materials": [
+            "Pluto nitrogen methane carbon monoxide surface ices Sputnik Planitia",
+            "Pluto tholins organic materials reddish coloration",
+            "Pluto glacial flow nitrogen ice convection cellular terrain"
+        ],
+        "climate": [
+            "Pluto tenuous atmosphere haze thermal structure New Horizons occultations"
+        ],
+        "radiation": [
+            "Pluto solar wind interaction atmospheric escape"
+        ]
+    },
+    "Ceres": {
+        "materials": [
+            "Ceres Occator bright spots sodium carbonates Dawn VIR",
+            "Ceres brines ammonia salts cryovolcanism Ahuna Mons"
+        ],
+        "climate": [
+            "Ceres exosphere tenuous water vapor detection"
+        ],
+        "radiation": [
+            "Ceres radiation environment Dawn mission"
+        ]
+    },
+    "Earth": {
+        "materials": [
+            "Earth atmosphere composition nitrogen oxygen carbon dioxide greenhouse gases",
+            "Earth crust composition silicates carbonates minerals geochemistry",
+            "Earth oceans hydrosphere salinity circulation carbon cycle",
+            "Earth polar ice glaciers ice sheets sea ice permafrost melting",
+            "Earth biosphere vegetation land cover photosynthesis carbon uptake"
+        ],
+        "climate": [
+            "Earth climate change global warming greenhouse effect carbon emissions",
+            "Earth atmospheric circulation Hadley cell jet streams ENSO El Niño La Niña",
+            "Earth weather hurricanes cyclones storms extreme events",
+            "Earth surface temperature anomalies heatwaves drought precipitation patterns",
+            "Earth ozone layer depletion recovery stratospheric chemistry"
+        ],
+        "radiation": [
+            "Earth magnetosphere solar wind interaction Van Allen radiation belts",
+            "Earth ionosphere thermosphere EUV solar activity auroras",
+            "Earth cosmic rays shielding geomagnetic storms space weather",
+            "Earth satellite radiation environment low Earth orbit LEO MEO GEO"
+        ]
+    }
+}

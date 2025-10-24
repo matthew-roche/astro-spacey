@@ -1,0 +1,20 @@
+{
+    "datasets":[
+        {
+            "repo": "nasa-impact/nasa-smd-qa-benchmark",
+            "source": "HF",
+            "name": "nasa-smd-qa"
+        },
+        {
+            "repo": "cjlovering/natural-questions-short",
+            "source": "HF",
+            "name": "cjlovering-qa"
+        },
+        {
+            "repo": "patrickfleith/space-news-dataset",
+            "source": "Kaggle",
+            "url": "https://www.kaggle.com/api/v1/datasets/download/patrickfleith/space-news-dataset",
+            "name": "space-news-dataset.zip"
+        }
+    ]
+}

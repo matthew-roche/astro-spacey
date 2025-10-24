@@ -1,0 +1,11 @@
+data/*
+!data/datasets.json
+!data/planetary_vocab.json
+models/*
+!models/models.json
+reports/*
+!reports/spacenews_classify.json
+!reports/spacenews_bodies_classify.json
+frontend/node_modules/
+*.pyc
+*.pyo
