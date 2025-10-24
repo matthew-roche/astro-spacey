@@ -19,7 +19,7 @@ Refer [System Architecture](https://github.com/matthew-roche/astro-spacey/blob/m
 ## Getting started guide
 Developed on Python version [3.12.5](https://www.python.org/downloads/release/python-3125/)   
 
-Packages used: [PyTorch v2.8 + cuda 12.9](https://github.com/pytorch/pytorch/releases/tag/v2.8.0), [matplotlib](https://pypi.org/project/matplotlib/), [Huggingface transformers v4.57.1](https://pypi.org/project/transformers/4.57.1/), [Huggingface datasets](https://pypi.org/project/datasets/), [Flask](https://pypi.org/project/Flask/), [Flask-smorest for swagger-ui](https://flask-smorest.readthedocs.io/en/latest/)   
+Packages used: [PyTorch v2.9 + cuda 12.9](https://github.com/pytorch/pytorch/releases/tag/v2.9.0), [matplotlib](https://pypi.org/project/matplotlib/), [Huggingface transformers v4.57.1](https://pypi.org/project/transformers/4.57.1/), [Huggingface datasets](https://pypi.org/project/datasets/), [Flask](https://pypi.org/project/Flask/), [Flask-smorest for swagger-ui](https://flask-smorest.readthedocs.io/en/latest/)   
 
 ### STEP 1
 We recommended to use a virtual python environment, this can be done with;
