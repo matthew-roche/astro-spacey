@@ -126,12 +126,26 @@ To follow the same steps, In AWS General purpose S3 bucket, add a file with this
 ```
 And in frontend project, set the s3 json file url in .env for ```CONFIG_URL```. The frontend will cache this on initial load and every 5mins [/frontent/lib/config.ts](https://github.com/matthew-roche/astro-spacey/blob/main/frontend/lib/config.ts). 
 
+### Step 9 (optional)
+If you want to try out tensorRT optmization on a Nvidia GPU, download the sdk from [developer.nvidia.com](https://developer.nvidia.com/tensorrt/download/10x) and install their wheel.
+
+For our project we use the default cp312 = python 3.12   
+
+```
+pip install tensorrt-10.13.3.9-cp312-none-win_amd64.whl
+```
+
+Then run our optimizer code, which will produce the onnx model and tensort engine
+```
+python pysrc/spacey_dev/optimize/roberta.py
+```
 
 ## Our setup
 
 Our local config is;
 | Component     | Specification |
 | ------------- | ------------- |
+| OS | win11 26200.6901 |
 | CPU | i5 12600K |
 | RAM | 32GB DDR4 |
 | Storage | nvme ssd |
