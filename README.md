@@ -1,4 +1,4 @@
-# AI QA (Question Answering) with NLP Transformers
+# 🚀🪐Plantary science Question Answering system with NLP Transformers
 
 Scalable lightweight system that answers to questions from the inference corpus. Accelerated performance with lightweight encoder transformers.
 
@@ -10,7 +10,7 @@ The way this system functions is,
 Benefits of this approach:   
 1. Fast adaptation to smaller domain datasets while having the zero-shot baseline answerable capability.    
 2. Preprocessing steps to handle noisy unknown dataset to create a quality inference corpus. 
-3. Includes UMAP + unsupervised HDBSCAN clustering, and coarse filtering with local inference on Meta LLaMA 3.1 8B (can we swapped as needed).   
+3. Includes [UMAP + unsupervised HDBSCAN clustering](https://github.com/matthew-roche/astro-spacey/blob/main/docs/umap-hdbscan-corpus.png), and coarse filtering with local inference on Meta LLaMA 3.1 8B (can we swapped as needed).   
 4. Deployable backend with Flask API and frontend with React + tailwind.     
 5. TensorRT optimization steps for Encoder Transformers.   
 
@@ -103,7 +103,9 @@ We didn't build a bf16 model but we included the tensorrt optimization code whic
 
 
 ### STEP 8
-Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan and used their [service-side functions for proxy](https://github.com/matthew-roche/astro-spacey/tree/main/frontend/api). Below are the steps for vercel deployment, remember to sign up and create an account there.   
+Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan and used their [service-side functions for proxy](https://vercel.com/docs/functions), have a look at [/frontend/api](https://github.com/matthew-roche/astro-spacey/tree/main/frontend/api).     
+
+Below are the steps for vercel deployment, remember to sign up and create an account there.   
 Then locally in the frontend root path, run below to install the packages:
 ```cmd
 npm install
@@ -122,7 +124,7 @@ To follow the same steps, In AWS General purpose S3 bucket, add a file with this
     "BACKEND_BASE":"https://yourbackendurl"
 }
 ```
-And in frontend project, set the s3 json file url in .env for ```CONFIG_URL```. The frontend will cache this on initial load [/frontent/lib/config.ts](https://github.com/matthew-roche/astro-spacey/blob/main/frontend/lib/config.ts). 
+And in frontend project, set the s3 json file url in .env for ```CONFIG_URL```. The frontend will cache this on initial load and every 5mins [/frontent/lib/config.ts](https://github.com/matthew-roche/astro-spacey/blob/main/frontend/lib/config.ts). 
 
 
 ## Our setup
@@ -182,16 +184,19 @@ gradient_checkpointing=True
 "NoAns_total": 20   
 
 ## Contributors
-| Name     | Area |
+| Name     | Role/Area |
 | ------------- | ------------- |
-| Sugam | Unsupervised data clustering |
-| Yuxuan | Evaluation Metric reviewer |
+| Matthew | Project Technical lead |
+| Sugam | Data Analyst |
+| Yuxuan | NQ data preprocessing, evaluation Metrics |
 | Moe | Team communications |
 | Kritika | Benchmark setup |
 
 ## Acknowledgements
-- [hugging face deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2)
+- [Original RoBERTa paper authors](https://openreview.net/forum?id=SyxS0T4tvS)
+- [hugging face deepset/roberta-base-squad2 authors](https://huggingface.co/deepset/roberta-base-squad2)
 - [hugging face cjlovering Natural Questions (short) Dataset](https://huggingface.co/datasets/cjlovering/natural-questions-short)
-- [hugging face NASA SMD Dataset](https://huggingface.co/datasets/nasa-impact/nasa-smd-qa-benchmark)
+- [hugging face NASA SMD Dataset authors](https://huggingface.co/datasets/nasa-impact/nasa-smd-qa-benchmark)
+- [Kaggle Spacenews Dataset](https://www.kaggle.com/datasets/patrickfleith/space-news-dataset) and [all the amazing authors of space news articles](https://spacenews.com/)
 - [Huggingface Trainer Documentation](https://huggingface.co/docs/transformers/en/main_classes/trainer)
 - Developed as a part of Westcliff MSCS AIT500 course 2025 Fall 1 session 2. We thank our professor Desmond for the continous guidance.
