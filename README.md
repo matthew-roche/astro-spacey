@@ -7,7 +7,6 @@ The way this system functions is,
 2. Then the zero-shot model is finetuned on NASA SMD training dataset towards domain adaptation.
 3. Fused retriever with BM25 and SimCSE (FAISS) inspired by RAG.   
 
-
 Benefits of this approach:   
 1. Fast adaptation to smaller domain datasets while having the zero-shot baseline answerable capability.    
 2. Preprocessing steps to handle noisy unknown dataset to create a quality inference corpus. 
@@ -15,7 +14,7 @@ Benefits of this approach:
 4. Deployable backend with Flask API and frontend with React + tailwind.     
 5. TensorRT optimization steps for Encoder Transformers.   
 
-Refer System Architecture for more details on how the infernce works.   
+Refer [System Architecture](https://github.com/matthew-roche/astro-spacey/blob/main/docs/system-arch.png) for more details on how the infernce works.   
 
 ## Getting started guide
 Developed on Python version [3.12.5](https://www.python.org/downloads/release/python-3125/)   
@@ -86,14 +85,14 @@ Create an API_SEC to limit access to backend, use any kind of secret generator o
 python -c "import secrets; print(secrets.token_hex(32));"
 ```
 Then copy the value and set the API_SEC environmental variable which is read by the backend server.py:
-```
+```cmd
 SET API_SEC=secretkey
 ```
 And add this key to ```/frontend/.env/VITE_API_SEC```   
 
 
 Then, deploy the backend locally and test the deployment with swagger UI ```http://127.0.0.1:5000/api/docs```
-```
+```cmd
 python pysrc/spacey_api/server.py
 ```
 Ensure ```/api/health``` returns healthy and ```/api/device``` returns ```cuda```, if it returns ```cpu``` then inference time would be slow. 
@@ -104,18 +103,26 @@ We didn't build a bf16 model but we included the tensorrt optimization code whic
 
 
 ### STEP 8
-Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan. Below are the steps for vercel deployment, remember to sign up and create an account there.   
+Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan and used their [service-side functions for proxy](https://github.com/matthew-roche/astro-spacey/tree/main/frontend/api). Below are the steps for vercel deployment, remember to sign up and create an account there.   
 Then locally in the frontend root path, run below to install the packages:
-```
+```cmd
 npm install
 ```
 Then install [vercel cli](https://vercel.com/docs/cli?package-manager=npm) and run:
-```
+```cmd
 vercel
 ```
 Which will require account authentication and then deploys the preview version.
 
-Because our backend was locally deployed, we used [cloudflared tunnel v10.0](https://github.com/cloudflare/cloudflared/releases/tag/2025.10.0) and a public exposed aws s3 general purpose bucket to dynamically set the backend url without redeploying the frontend. In frontend project, s3 url is set in .env for ```CONFIG_URL```
+Because our backend was locally deployed, we used [cloudflared tunnel v10.0](https://github.com/cloudflare/cloudflared/releases/tag/2025.10.0) and a public exposed aws s3 general purpose bucket to dynamically set the backend url without redeploying the frontend.
+
+To follow the same steps, In AWS General purpose S3 bucket, add a file with this json:
+```json
+{
+    "BACKEND_BASE":"https://yourbackendurl"
+}
+```
+And in frontend project, set the s3 json file url in .env for ```CONFIG_URL```. The frontend will cache this on initial load [/frontent/lib/config.ts](https://github.com/matthew-roche/astro-spacey/blob/main/frontend/lib/config.ts). 
 
 
 ## Our setup
