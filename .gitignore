@@ -9,3 +9,5 @@ reports/*
 frontend/node_modules/
 *.pyc
 *.pyo
+tensorrt
+onnx
