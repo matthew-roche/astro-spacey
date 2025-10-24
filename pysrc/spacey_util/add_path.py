@@ -56,11 +56,17 @@ def fine_tuned_model_path():
 
 def onnx_model_path():
     project_dir = project_path()
-    return project_dir / "onnx"
+    path_ = project_dir / "onnx"
+    if not os.path.exists(path_):
+        os.makedirs(path_)
+    return path_
 
 def trt_model_path():
     project_dir = project_path()
-    return project_dir / "tensorrt"
+    path_ = project_dir / "tensorrt"
+    if not os.path.exists(path_):
+        os.makedirs(path_)
+    return path_
 
 def model_list_file_path():
     project_dir = project_path()

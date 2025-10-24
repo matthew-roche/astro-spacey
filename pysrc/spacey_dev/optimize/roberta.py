@@ -1,13 +1,13 @@
 import torch, numpy as np, time
 import onnxruntime as ort
-from spacey_util.add_path import fine_tuned_model_path, onnx_model_path, trt_model_path
+from spacey_util.add_path import model_path, onnx_model_path, trt_model_path
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 import tensorrt as trt
 
-EXPORT_ONNX = False
+EXPORT_ONNX = True
 VALIDATE_ONNX = True
-EXPORT_TRT = False
+EXPORT_TRT = True
 VALIDATE_TRT = True
 
 TRT_OPTIMIZE_LEVEL = 5 
@@ -25,6 +25,7 @@ def export_onnx(model, inputs, save_onnx_dir):
             "attention_mask": {0: "batch_size", 1: "sequence_length"}
         },  # Dynamic axes for flexible input sizes
         opset_version=OPSET_VERSION,  
+        external_data=False
     )
 
 def onnx_inference(ort_session, inputs, tokenizer):
@@ -44,13 +45,14 @@ def onnx_inference(ort_session, inputs, tokenizer):
 
 
 if __name__ == "__main__":
-    saved_m_dir = fine_tuned_model_path() / "roberta-base-squad2-nq-nasa/checkpoint-90"
-    saved_t_dir = fine_tuned_model_path() / "roberta-base-squad2-nq-nasa/checkpoint-90"
+    # saved_m_dir = fine_tuned_model_path() / "roberta-base-squad2-nq-nasa/checkpoint-90"
+    # saved_t_dir = fine_tuned_model_path() / "roberta-base-squad2-nq-nasa/checkpoint-90"
+    roberta_nq_nasa = model_path() / "quantaRoche-roberta-finetuned-nq-nasa-qa"
     save_onnx_dir = onnx_model_path() / "roberta-base-squad2-nq-nasa-cp90.onnx"
     save_engine_dir = trt_model_path() /  f"./roberta-base-squad2-nq-nasa-cp90-{TRT_OPTIMIZE_LEVEL}.trt"
 
-    transformer_model = AutoModelForQuestionAnswering.from_pretrained(saved_m_dir)
-    tokenizer = AutoTokenizer.from_pretrained(saved_t_dir)
+    transformer_model = AutoModelForQuestionAnswering.from_pretrained(roberta_nq_nasa)
+    tokenizer = AutoTokenizer.from_pretrained(roberta_nq_nasa)
 
     context_list = [
         "The spacecraft carries a suite of instruments designed to study the planet's upper atmosphere to better understand how the planet's atmosphere and climate have changed over time.",
@@ -165,7 +167,7 @@ if __name__ == "__main__":
         print(f"Engine saved to {save_engine_dir}")
 
     if VALIDATE_TRT:
-        from spacey.optimize.tensorrt_inference import engine_inference, init_cuda_context
+        from spacey_dev.optimize.tensorrt_inference import engine_inference, init_cuda_context
         init_cuda_context()
         
         with open(save_engine_dir, "rb") as f, trt.Runtime(trt.Logger(trt.Logger.WARNING)) as runtime:
