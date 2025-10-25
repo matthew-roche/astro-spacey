@@ -52,7 +52,7 @@ set HF_TOKEN=yourtoken
 ```
 
 #### For deployment only:   
-We uploaded our finetuned nq_nasa_v1 model to hugging face [quantaRoche/roberta-finetuned-nq-nasa-qa](https://huggingface.co/quantaRoche/roberta-finetuned-nq-nasa-qa) therefore this is referenced in ```models/models.json``` and can be downloaded through the below method.
+We uploaded our finetuned nq_nasa_v1 model to hugging face [quantaRoche/roberta-finetuned-nq-nasa-qa](https://huggingface.co/quantaRoche/roberta-base-finetuned-nq-nasa-qa) therefore this is referenced in ```models/models.json``` and can be downloaded through the below method.
 ```
 python pysrc/spacey_dev/setup.py --deploy-only=true
 ```
