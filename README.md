@@ -1,4 +1,4 @@
-# 🚀🪐Plantary science Question Answering system with NLP Transformers
+# 🚀🪐Planetary science Question Answering system with NLP Transformers
 
 Scalable lightweight system that answers to questions from the inference corpus. Accelerated performance with lightweight encoder transformers.
 
@@ -99,7 +99,7 @@ Ensure ```/api/health``` returns healthy and ```/api/device``` returns ```cuda``
 
 Recommendation is to deploy the backend in an [aws g6 instance](https://aws.amazon.com/ec2/instance-types/g6/), like g6f.2xlarge and ssh to check the status. But this can also be deployed on g4 or previous architectures.
 
-We didn't build a bf16 model but we included the tensorrt optimization code which converts the torch model to onnx to trt with assertion. Feel free to check it out in ```/pysrc/spacey_dev/optimization/```   
+We also included the tensorrt optimization code which converts the torch model to onnx to trt with assertion. Feel free to check it out in ```/pysrc/spacey_dev/optimization/```   
 
 
 ### STEP 8

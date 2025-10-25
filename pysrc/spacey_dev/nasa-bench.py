@@ -4,7 +4,7 @@ from evaluate import load as load_metric
 from spacey_util.add_path import data_processed_path
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-BENCH_NQ_MODEL = False
+BENCH_NQ_MODEL = False # nq_v1 model
 BENCH_NQ_NASA_MODEL = True
 
 NASA_SMD_VALIDATION_FILE_PATH = data_processed_path() / "nasa_smd_val_cleaned_v1_alpha.json"
@@ -12,12 +12,11 @@ NASA_SMD_VALIDATION_FILE_PATH = data_processed_path() / "nasa_smd_val_cleaned_v1
 with open(NASA_SMD_VALIDATION_FILE_PATH, "r", encoding="utf-8") as f:
     validation_list = json.load(f)
 
-SAVE_MODEL_DIR = "./models/deepset-roberta-base-squad2"
-SAVE_T_DIR = "./models/deepset-roBerta-base-squad2-token"
+BASE_MODEL_DIR = "./models/deepset-roberta-base-squad2"
 
 roberta_base_sq2_pipeline = pipeline("question-answering", 
-                                     model=AutoModelForQuestionAnswering.from_pretrained(SAVE_MODEL_DIR),
-                                     tokenizer=AutoTokenizer.from_pretrained(SAVE_T_DIR), device_map=device)
+                                     model=AutoModelForQuestionAnswering.from_pretrained(BASE_MODEL_DIR),
+                                     tokenizer=AutoTokenizer.from_pretrained(BASE_MODEL_DIR), device_map=device)
 
 if BENCH_NQ_MODEL:
     FT_MODEL_DIR = "./finetuned_models/roberta-base-squad2-nq"
