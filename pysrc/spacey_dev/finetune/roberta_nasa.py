@@ -24,7 +24,7 @@ import evaluate, json, re
 import numpy as np
 import collections
 from pathlib import Path
-from spacey.add_path import fine_tuned_model_path, data_processed_path
+from spacey_util.add_path import fine_tuned_model_path, data_processed_path
 from peft import LoraConfig, AutoPeftModelForQuestionAnswering, get_peft_model, TaskType
 # from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 import torch
@@ -36,7 +36,6 @@ def project_path():
 
 # ========= Configuration =========
 USE_LORA           = False
-MODEL_NAME_OR_PATH = "deepset/roberta-base-squad2"
 TRAIN_JSON_PATH    = "nasa_smd_train_cleaned_v1_alpha.json"
 DEV_JSON_PATH      = "nasa_smd_val_cleaned_v1_alpha.json"
 
@@ -52,11 +51,11 @@ LOG_STEPS          = 5 # log at each
 OUTPUT_DIR         = "./finetuned_models/roberta-base-squad2-nq-nasa"
 # USE_BF16           = True                            # 4080 Super supports bfloat16, but collab doesn't
 USE_GRAD_CHKPT     = True                            # memory saver on long seqs
-model_dir         = fine_tuned_model_path() / "roberta-base-squad2-nq"
+base_model_dir     = fine_tuned_model_path() / "roberta-base-squad2-nq"
 
 # ========= Load data & model =========
 dataset = load_dataset("json", data_files={"train": TRAIN_JSON_PATH, "validation": DEV_JSON_PATH}, data_dir=data_processed_path())
-tokenizer = AutoTokenizer.from_pretrained(model_dir)
+tokenizer = AutoTokenizer.from_pretrained(base_model_dir)
 
 # ========= Trainable Params ==========
 
@@ -86,13 +85,13 @@ if USE_LORA:
         layers_pattern="layer" # layer.#
     )
 
-    checkpoint_model = AutoModelForQuestionAnswering.from_pretrained(model_dir)
+    checkpoint_model = AutoModelForQuestionAnswering.from_pretrained(base_model_dir)
     model = get_peft_model(checkpoint_model, peft_cfg)
     model.print_trainable_parameters()
 
 else:
     # method 2
-    model = AutoModelForQuestionAnswering.from_pretrained(model_dir)
+    model = AutoModelForQuestionAnswering.from_pretrained(base_model_dir)
     def is_lastK_layer(n): 
         return any(re.search(fr"encoder\.layer\.{i}\.", n) for i in range(0, 12))
 

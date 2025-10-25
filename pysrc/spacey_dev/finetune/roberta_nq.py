@@ -10,7 +10,7 @@ def set_seed(seed: int=42):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = True
 
-set_seed()
+set_seed() # stdev +/- 5
 
 from datasets import load_dataset
 from transformers import (
@@ -24,7 +24,7 @@ import evaluate, json, re
 import numpy as np
 import collections
 from pathlib import Path
-from spacey.add_path import model_path, data_processed_path
+from spacey_util.add_path import model_path, data_processed_path
 # from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from torch.optim import AdamW
 
@@ -34,7 +34,6 @@ def project_path():
     return project_dir
 
 # ========= Configuration =========
-MODEL_NAME_OR_PATH = "deepset/roberta-base-squad2"
 TRAIN_JSON_PATH    = "nq_train_cleaned_v1_alpha.json"
 DEV_JSON_PATH      = "nq_val_cleaned_v1_alpha.json"
 

@@ -1,4 +1,4 @@
-# 🚀🪐Plantary science Question Answering system with NLP Transformers
+# 🚀🪐Planetary science Question Answering system with NLP Transformers
 
 Scalable lightweight system that answers to questions from the inference corpus. Accelerated performance with lightweight encoder transformers.
 
@@ -19,7 +19,7 @@ Refer [System Architecture](https://github.com/matthew-roche/astro-spacey/blob/m
 ## Getting started guide
 Developed on Python version [3.12.5](https://www.python.org/downloads/release/python-3125/)   
 
-Packages used: [PyTorch v2.8 + cuda 12.9](https://github.com/pytorch/pytorch/releases/tag/v2.8.0), [matplotlib](https://pypi.org/project/matplotlib/), [Huggingface transformers v4.57.1](https://pypi.org/project/transformers/4.57.1/), [Huggingface datasets](https://pypi.org/project/datasets/), [Flask](https://pypi.org/project/Flask/), [Flask-smorest for swagger-ui](https://flask-smorest.readthedocs.io/en/latest/)   
+Packages used: [PyTorch v2.9 + cuda 12.9](https://github.com/pytorch/pytorch/releases/tag/v2.9.0), [matplotlib](https://pypi.org/project/matplotlib/), [Huggingface transformers v4.57.1](https://pypi.org/project/transformers/4.57.1/), [Huggingface datasets](https://pypi.org/project/datasets/), [Flask](https://pypi.org/project/Flask/), [Flask-smorest for swagger-ui](https://flask-smorest.readthedocs.io/en/latest/)   
 
 ### STEP 1
 We recommended to use a virtual python environment, this can be done with;
@@ -99,11 +99,13 @@ Ensure ```/api/health``` returns healthy and ```/api/device``` returns ```cuda``
 
 Recommendation is to deploy the backend in an [aws g6 instance](https://aws.amazon.com/ec2/instance-types/g6/), like g6f.2xlarge and ssh to check the status. But this can also be deployed on g4 or previous architectures.
 
-We didn't build a bf16 model but we included the tensorrt optimization code which converts the torch model to onnx to trt with assertion. Feel free to check it out in ```/pysrc/spacey_dev/optimization/```   
+We also included the tensorrt optimization code which converts the torch model to onnx to trt with assertion. Feel free to check it out in ```/pysrc/spacey_dev/optimization/```   
 
 
 ### STEP 8
 Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan and used their [service-side functions for proxy](https://vercel.com/docs/functions), have a look at [/frontend/api](https://github.com/matthew-roche/astro-spacey/tree/main/frontend/api).     
+
+Here is the [deployment architecture we followed for the demo](https://github.com/matthew-roche/astro-spacey/blob/main/docs/deployment.png)    
 
 Below are the steps for vercel deployment, remember to sign up and create an account there.   
 Then locally in the frontend root path, run below to install the packages:
@@ -126,12 +128,26 @@ To follow the same steps, In AWS General purpose S3 bucket, add a file with this
 ```
 And in frontend project, set the s3 json file url in .env for ```CONFIG_URL```. The frontend will cache this on initial load and every 5mins [/frontent/lib/config.ts](https://github.com/matthew-roche/astro-spacey/blob/main/frontend/lib/config.ts). 
 
+### Step 9 (optional)
+If you want to try out tensorRT optmization on a Nvidia GPU, download the sdk from [developer.nvidia.com](https://developer.nvidia.com/tensorrt/download/10x) and install their wheel.
+
+For our project we use the default cp312 = python 3.12   
+
+```
+pip install tensorrt-10.13.3.9-cp312-none-win_amd64.whl
+```
+
+Then run our optimizer code, which will produce the onnx model and tensort engine
+```
+python pysrc/spacey_dev/optimize/roberta.py
+```
 
 ## Our setup
 
 Our local config is;
 | Component     | Specification |
 | ------------- | ------------- |
+| OS | win11 26200.6901 |
 | CPU | i5 12600K |
 | RAM | 32GB DDR4 |
 | Storage | nvme ssd |
