@@ -105,6 +105,8 @@ We also included the tensorrt optimization code which converts the torch model t
 ### STEP 8
 Frontend can be deployed anywhere needed, we did the deployment on vercel hobby plan and used their [service-side functions for proxy](https://vercel.com/docs/functions), have a look at [/frontend/api](https://github.com/matthew-roche/astro-spacey/tree/main/frontend/api).     
 
+Here is the [deployment architecture we followed for the demo](https://github.com/matthew-roche/astro-spacey/blob/main/docs/deployment.png)    
+
 Below are the steps for vercel deployment, remember to sign up and create an account there.   
 Then locally in the frontend root path, run below to install the packages:
 ```cmd
